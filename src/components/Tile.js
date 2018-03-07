@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 class Tile extends Component {
     render() {
-        const px = this.props.position[0]*50 - 50;
-        const py = this.props.position[1]*50 - 50;
+        const px = (this.props.position - ((Math.ceil(this.props.position / 4) - 1) * 4)) * 50 - 50;
+        const py = (Math.ceil(this.props.position / 4) - 1) * 50;
         const style = {
             transform: `translate(${px}px, ${py}px)`
         }

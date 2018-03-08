@@ -1,16 +1,16 @@
 import React from 'react';
-import Steps from "./Steps";
-import Progress from "./Progress";
+import Score from './Score';
+import Progress from './Progress';
 
 const Bar = (props) => {
-    if(props.gameStarted){
-        return (
-            <div className="bar">
-                <Progress progress={props.progress} size={15} />
-                <Steps steps={props.steps} />
-            </div>
-        )
-    } else return null;
-}
+	if (props.gameStarted) {
+		return (
+			<div className="bar">
+				<Progress progress={props.progress} size={15} />
+				<Score score={props.score} />
+			</div>
+		);
+	} else return null;
+};
 
 export default Bar;

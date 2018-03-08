@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
 import GameField from './components/GameField';
-import Bar from "./components/Bar";
+import Bar from './components/Bar';
 
 class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			gameStarted: false,
-			steps: 0,
+			score: 0,
 			progress: 0,
 			tiles: {
 				tile1: {
@@ -82,8 +82,10 @@ class App extends Component {
 		const tilePos = this.state.tiles[tile].position;
 		const holePos = this.state.hole.position;
 
-
-		if (Math.abs(tilePos - holePos) === 4 || ((Math.abs(tilePos - holePos) === 1) && Math.ceil(tilePos/4) === Math.ceil(holePos/4))) {
+		if (
+			Math.abs(tilePos - holePos) === 4 ||
+			(Math.abs(tilePos - holePos) === 1 && Math.ceil(tilePos / 4) === Math.ceil(holePos / 4))
+		) {
 			let tiles = { ...this.state.tiles };
 			const newTile = { ...this.state.tiles[tile], ...this.state.hole };
 
@@ -91,38 +93,40 @@ class App extends Component {
 			const { position } = this.state.tiles[tile];
 			const hole = { position };
 
-			const steps = this.state.steps + 1;
-			this.setState({ tiles, hole, steps });
+			const score = this.state.score + 1;
+			this.setState({ tiles, hole, score });
+			this.calcProgress();
 		}
 	};
 
 	startGame = () => {
 		this.shuffle();
-        this.setState({ progress: 2 });
-		//this.calcProgress();
-		//this.setState({ gameStarted: true });
-	}
+		this.setState({ gameStarted: true });
+	};
 
 	calcProgress = () => {
-		const progress = Object.keys(this.state.tiles).filter(key => this.state.tiles[key].position === this.state.tiles[key].value).length;
+		const progress = Object.keys(this.state.tiles).filter(
+			(key) => this.state.tiles[key].position === this.state.tiles[key].value
+		).length;
 		this.setState({ progress });
-	}
+	};
 
 	shuffle = () => {
-		let newTiles = { ...this.state.tiles };
-		const arr = Object.keys(newTiles).sort((a,b) => Math.random() - 0.5);
+		let tiles = { ...this.state.tiles };
+		const arr = Object.keys(tiles).sort((a, b) => Math.random() - 0.5);
 		arr.forEach((key, i) => {
-            newTiles[key].position = i + 1;
-		})
-	}
+			tiles[key] = { ...tiles[key], position: i + 1 };
+		});
+		this.setState({ tiles }, this.calcProgress);
+	};
 
 	render() {
-		return(
+		return (
 			<div className="container">
 				<GameField move={this.move} startGame={this.startGame} tiles={this.state.tiles} />
-				<Bar gameStarted={this.state.gameStarted} steps={this.state.steps} progress={this.state.progress} />
+				<Bar gameStarted={this.state.gameStarted} score={this.state.score} progress={this.state.progress} />
 			</div>
-		)
+		);
 	}
 }
 

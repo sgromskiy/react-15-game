@@ -4,7 +4,7 @@ This is classic "15 PUZZLE GAME" on react.
 
 ![screenshoot](https://s20.postimg.org/rvit3i9cd/puzzle-15.jpg)
 
-##Wanna try?
+## Wanna try?
 
 - Clone this repo
 - `cd` in the project directory and run `npm install`

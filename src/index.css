@@ -38,6 +38,7 @@ button {
 .container {
 	max-width: 212px;
 	margin: 0 auto;
+	padding: 50px 0;
 }
 
 .bar {
@@ -57,13 +58,17 @@ button {
 }
 .score-wrap {
 	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 .score {
 	font-size: 1.5em;
 	line-height: 1;
+	margin-bottom: -4px;
 }
 .progress-bar {
-	height: 8px;
+	height: 14px;
 	-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
 	border-radius: 6px;

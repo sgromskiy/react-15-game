@@ -16,15 +16,22 @@ class App extends Component {
 
 	startGame = () => {
 		this.setShuffle();
-		this.setState({ gameStarted: true });
 	};
 
 	setProgress = () => {
-		this.setState({ progress: game.caclProgress(this.state.tiles) });
+		this.setState({ progress: game.caclProgress(this.state.tiles)}, this.checkEnd);
 	};
 
+	checkEnd= () =>{
+		if(game.isWin(this.state.tiles)) {
+            this.setState({gameStarted: false, gameFinished: true })
+		}
+	}
+
 	setShuffle = () => {
-		this.setState({ tiles: game.shuffleTiles({...this.state.tiles}) }, this.setProgress);
+		const shuffleTiles = game.shuffleTiles({...this.state.tiles});
+        const progress = game.caclProgress(shuffleTiles);
+		this.setState({ tiles: shuffleTiles, progress, gameStarted: true });
 	};
 
 	render() {

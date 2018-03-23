@@ -21,7 +21,6 @@ export  function moveTile(tile, state) {
         Math.abs(tilePos - holePos) === 4 ||
         (Math.abs(tilePos - holePos) === 1 && Math.ceil(tilePos / 4) === Math.ceil(holePos / 4))
     ) {
-        console.log(state)
         let tiles = { ...state.tiles };
         const newTile = { ...state.tiles[tile], ...state.hole };
 
@@ -34,10 +33,14 @@ export  function moveTile(tile, state) {
     }
 }
 
+export  function isWin(tiles) {
+    return !Object.keys(tiles).filter(tile => tiles[tile].position !== tiles[tile].value).length;
+}
 
 export function initialState() {
     return {
         gameStarted: false,
+        gameFinished: false,
         score: 0,
         progress: 0,
         tiles: {

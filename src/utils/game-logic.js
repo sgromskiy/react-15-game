@@ -51,9 +51,7 @@ export function initialState() {
         gameState: 1,
         score: 0,
         progress: 0,
-        scores: [
-            { name: 'John Smith', score: 164}
-        ],
+        scores: [],
         tiles: {
             tile1: {
                 value: 1,

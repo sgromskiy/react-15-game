@@ -1,11 +1,12 @@
 import React, {Fragment} from 'react';
 import { Link } from 'react-router-dom';
 import Star from "./Star";
+import logo from '../img/15-logo.svg';
 
 const Home = () => (
     <Fragment>
         <div className="logo">
-            <img src="" alt="15 Puzzle Game"/>
+            <img src={logo} alt="15 Puzzle Game"/>
         </div>
         <nav className="main-nav">
             <Star />

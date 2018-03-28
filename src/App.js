@@ -8,6 +8,7 @@ import {
     Route,
     Switch
 } from 'react-router-dom'
+import base from './base.js';
 
 class App extends Component {
 	constructor(props) {
@@ -15,8 +16,19 @@ class App extends Component {
 		this.state = game.initialState();
 	}
 
+	componentDidMount(){
+		this.ref = base.syncState('scores', {
+			context: this,
+			state: 'scores'
+			}
+		)
+	}
+
 	move = (tile) => {
-		this.setState( game.moveTile(tile, this.state), this.checkEnd );
+		const newState = game.moveTile(tile, this.state);
+		if (newState) {
+            this.setState( {...newState}, this.checkEnd );
+		}
 	}
 
 	startGame = () => {

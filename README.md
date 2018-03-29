@@ -8,5 +8,5 @@ This is classic "15 PUZZLE GAME" on react.
 
 - Clone this repo
 - `cd` in the project directory and run `npm install`
-- Then type `npm install` it will runs the app
+- Then type `npm start` it will runs the app
 - Open [http://localhost:3000](http://localhost:3000) to view it in the browser.

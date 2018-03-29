@@ -52,6 +52,8 @@ class App extends Component {
             name: userName,
             score: this.state.score
 		}];
+        scores.sort((a, b) => a.score > b.score);
+		if (scores.length > 4 ) scores.length = 4;
         this.setState({ scores });
 	}
 

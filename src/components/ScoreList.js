@@ -4,7 +4,7 @@ const ScoreList = ({scores}) => {
     const list = (scores && scores.length ) ?
         (
             <ol>
-                {scores.sort((a, b) => a.score > b.score).map((item, index) => (
+                {scores.map((item, index) => (
                     <li key={index}>
                         <div>
                             <span className="name">{item.name}</span>
@@ -17,10 +17,10 @@ const ScoreList = ({scores}) => {
         ) : ( <p>No data</p> );
 
     return (
-    <div className="score-list">
-        <h2>High Scores</h2>
-        { list }
-    </div>
+        <div className="score-list">
+            <h2>High Scores</h2>
+            { list }
+        </div>
     )
 };
 

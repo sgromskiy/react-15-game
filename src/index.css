@@ -17,10 +17,12 @@ a {
     color: DeepSkyBlue; }
 
 h2 {
-  color: DeepSkyBlue; }
+  color: DeepSkyBlue;
+  text-shadow: 1px 1px 0px deeppink; }
 
 h3 {
-  color: DeepPink; }
+  color: DeepPink;
+  text-shadow: 1px 1px 0px DeepSkyBlue; }
 
 .container {
   max-width: 260px;

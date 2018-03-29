@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const ScoreList = ({scores}) => {
     const list = (scores && scores.length ) ?
@@ -23,5 +24,12 @@ const ScoreList = ({scores}) => {
         </div>
     )
 };
+
+ScoreList.propTypes = {
+    scores: PropTypes.arrayOf(PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        score: PropTypes.number.isRequired
+    })).isRequired
+}
 
 export default ScoreList;

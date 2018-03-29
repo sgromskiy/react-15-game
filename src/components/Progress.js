@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Progress = (props) => {
 	const currentProgress = props.progress / props.size * 100;
@@ -12,4 +13,10 @@ const Progress = (props) => {
 	);
 };
 
+Progress.propTypes = {
+	progress: PropTypes.number.isRequired,
+	size: PropTypes.number.isRequired
+};
+
 export default Progress;
+

@@ -1,23 +1,31 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-class Tile extends Component {
-	render() {
-		const px = (this.props.position - (Math.ceil(this.props.position / 4) - 1) * 4) * 50 - 50;
-		const py = (Math.ceil(this.props.position / 4) - 1) * 50;
-		const onPlace = this.props.position === this.props.value;
-		const style = {
-			transform: `translate(${px}px, ${py}px)`
-		};
-		return (
-			<button
-				className={'tile ' + (onPlace ? 'cool' : '')}
-				style={style}
-				onClick={() => this.props.move(this.props.index)}
-			>
-				{this.props.value}
-			</button>
-		);
-	}
+const Tile = ({move, position, value, index}) => {
+
+	const px = (position - (Math.ceil(position / 4) - 1) * 4) * 50 - 50;
+	const py = (Math.ceil(position / 4) - 1) * 50;
+	const onPlace = position === value;
+	const style = {
+		transform: `translate(${px}px, ${py}px)`
+	};
+
+	return (
+		<button
+			className={'tile ' + (onPlace ? 'cool' : '')}
+			style={style}
+			onClick={() => move(index)}
+		>
+			{value}
+		</button>
+	);
+}
+
+Tile.propTypes = {
+	position: PropTypes.number.isRequired,
+	value: PropTypes.number.isRequired,
+	move: PropTypes.func.isRequired,
+    index: PropTypes.string.isRequired,
 }
 
 export default Tile;

@@ -3,7 +3,6 @@ import GameField from "./GameField";
 import Bar from "./Bar";
 import SaveScore from "./SaveScore";
 import PropTypes from 'prop-types';
-import ScoreList from "./ScoreList";
 
 
 class Game extends Component {
@@ -31,7 +30,7 @@ class Game extends Component {
     };
 }
 
-ScoreList.propTypes = {
+Game.propTypes = {
     score: PropTypes.number.isRequired,
     gameState: PropTypes.number.isRequired,
     tiles: PropTypes.arrayOf(PropTypes.shape({

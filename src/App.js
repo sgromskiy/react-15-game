@@ -69,7 +69,7 @@ class App extends Component {
 				<Switch>
 					<Route exact  path="/" component={Home} />
                 	<Route path="/game" render={()=> <Game {...this.state} move={this.move} resetGame={this.resetGame} saveScore={this.saveScore} startGame={this.startGame} /> } />
-                	<Route path="/high-scores" render={()=> <HighScore score={this.state.score} scores={this.state.scores} /> } />
+                	<Route path="/high-scores" render={()=> <HighScore scores={this.state.scores} /> } />
 				</Switch>
 			</div>
 			</Router>

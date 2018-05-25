@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 This is classic "15 PUZZLE GAME" on react.
 
-![screenshoot](https://s20.postimg.org/rvit3i9cd/puzzle-15.jpg)
+![screenshoot](https://s20.postimg.cc/rvit3i9cd/puzzle-15.jpg)
 
 ## Wanna try?
 
